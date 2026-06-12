@@ -7,8 +7,6 @@ namespace CTravel.API.Entities
 {
     public class TouristPlace
     {
-        ublic class TouristPlace
-        {
             public int PlaceID { get; set; }
 
             public int StateID { get; set; }
@@ -48,5 +46,5 @@ namespace CTravel.API.Entities
             public DateTime? ModifiedOn { get; set; }
         }
 
-    }
+    
 }

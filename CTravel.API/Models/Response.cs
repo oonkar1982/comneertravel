@@ -18,20 +18,17 @@ namespace CTravel.API.Models
 
         public static Response<T> Fail(T data, int messageid, string message)
         {
-            return new Response<T> { MessageID = messageid, MessageDesc = message, Data = default(T) };
+            return new Response<T> { MessageID = messageid, MessageDesc = message, Data = data };
         }
 
         public static Response<object> Fail(int messageid, string message)
         {
-            return new Response<object> { MessageID = messageid, MessageDesc = message, Data = default(T) };
+            return new Response<object> { MessageID = messageid, MessageDesc = message, Data = null };
         }
 
-        public static Response<List<T>> Ok(List<T> list, int messageid, string message)
-        {
-            return new Response<List<T>> { MessageID = messageid, MessageDesc = message, Data = default(List<T>) };
-        }
+        public static Response<List<T>> Ok(List<T> list, int messageid, string message) => new Response<List<T>> { MessageID = messageid, MessageDesc = message, Data = list };
 
-    
 
-}
+
+    }
 }

@@ -7,6 +7,7 @@ namespace CTravel.API.DTO
 {
     public class TouristPlaceDTO
     {
+        public int PlaceID { get; set; }
         public string StateName { get; set; }
 
         public string DistrictName { get; set; }
