@@ -31,5 +31,28 @@ namespace CTravel.API.Controllers
                return Request.CreateResponse(HttpStatusCode.OK, Response<List<TouristPlaceDTO>>.Ok(obj.Data, obj.MessageID, obj.MessageDesc));
         }
 
+
+        [HttpPost]
+        [Route("api/place")]
+        public HttpResponseMessage CreatePlace([FromBody] CreateTouristPlaceRequest req)
+        {
+            var obj = _repo.CreatePlace(req);
+            return Request.CreateResponse(HttpStatusCode.OK, obj);
+        }
+        [HttpPut]
+        [Route("api/place")]
+        public HttpResponseMessage UpdatePlace([FromBody] UpdateTouristPlaceRequest req)
+        {
+            var obj = _repo.UpdatePlace(req);
+            return Request.CreateResponse(HttpStatusCode.OK, obj);
+        }
+
+        [HttpDelete]
+        [Route("api/place/{placeId}/{modifiedBy}")]
+        public HttpResponseMessage DeletePlace(int placeId, int modifiedBy)
+        {
+            var obj = _repo.DeletePlace(placeId, modifiedBy);
+            return Request.CreateResponse(HttpStatusCode.OK, obj);
+        }
     }
 }
