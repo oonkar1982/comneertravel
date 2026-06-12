@@ -219,9 +219,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BookmarkController.cs" />
+    <Compile Include="Controllers\ContributionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TouristPlaceController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="DTO\TouristPlaceDTO.cs" />
     <Compile Include="Entities\TouristPlace.cs" />
     <Compile Include="Filters\ApiKeyAuthFilter.cs" />
