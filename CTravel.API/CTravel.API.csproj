@@ -234,8 +234,10 @@
     <Compile Include="Helpers\JwtHelper.cs" />
     <Compile Include="Middleware\GlobalExceptionFilter.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\PagedResult.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DropdownRep.cs" />
     <Compile Include="Repository\PlaceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
