@@ -13,7 +13,81 @@ namespace CTravel.API.Repository
 {
     public class PlaceRepository
     {
-        
+
+        public Response<PagedResponse<List<TouristPlaceDTO>>> GetTouristPlacesFilter(TouristPlaceFilterRequest filter)
+        {
+            var response = new Response<PagedResponse<List<TouristPlaceDTO>>>();
+            var list = new List<TouristPlaceDTO>();
+
+            try
+            {
+                using (var con = DbHelper.GetConnection())
+                using (var cmd = new SqlCommand("GetTouristPlacesFilter", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@CountryID", filter.CountryID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@StateID", filter.StateID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@DistrictID", filter.DistrictID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CityID", filter.CityID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CategoryID", filter.CategoryID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@PageNo", filter.PageNo);
+                    cmd.Parameters.AddWithValue("@PageSize", filter.PageSize);
+
+                    var totalCountParam = new SqlParameter("@TotalCount", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                    var statusCodeParam = new SqlParameter("@StatusCode", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                    var messageParam = new SqlParameter("@Message", SqlDbType.NVarChar, 500) { Direction = ParameterDirection.Output };
+                    cmd.Parameters.Add(totalCountParam);
+                    cmd.Parameters.Add(statusCodeParam);
+                    cmd.Parameters.Add(messageParam);
+
+                    con.Open();
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            list.Add(new TouristPlaceDTO
+                            {
+                                PlaceID = Convert.ToInt32(dr["PlaceID"]),
+                                TouristPlaceName = dr["TouristPlaceName"].ToString(),
+                                AboutPlace = dr["AboutPlace"].ToString(),
+                                BestTime = dr["BestTime"].ToString(),
+                                Timings = dr["Timings"].ToString(),
+                                CommoneerPick = Convert.ToBoolean(dr["CommoneerPick"]),
+                                OffbeatHiddenGem = Convert.ToBoolean(dr["OffbeatHiddenGem"]),
+                                SeasonalPick = Convert.ToBoolean(dr["SeasonalPick"]),                               
+                                OfficialWebsiteLink = dr["OfficialWebsiteLink"].ToString(),
+                                IsActive = Convert.ToBoolean(dr["IsActive"]),
+                                StateName = dr["StateName"].ToString(),
+                                DistrictName = dr["DistrictName"].ToString(),
+                                CityName = dr["CityName"].ToString()
+                                
+                                
+                            });
+                        }
+                    }
+
+                    response.Data = new PagedResponse<List<TouristPlaceDTO>>
+                    {
+                        TotalCount = (int)totalCountParam.Value,
+                        PageNo = filter.PageNo,
+                        PageSize = filter.PageSize,
+                        Data = list
+                    };
+
+                    response.MessageID = (int)statusCodeParam.Value;
+                    response.MessageDesc = messageParam.Value?.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                response.MessageID = -1;
+                response.MessageDesc = ex.Message;
+                response.Data = null;
+            }
+
+            return response;
+        }
         public Response<List<TouristPlaceDTO>> GetPlace(int stateId, int cityId)
         {
             var list = new List<TouristPlaceDTO>();

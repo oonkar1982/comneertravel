@@ -91,4 +91,52 @@ namespace CTravel.API.DTO
         public string TicketingUrl { get; set; }
     }
 
+    public class TouristPlaceFilterRequest
+    {
+        private int? _countryID;
+        private int? _stateID;
+        private int? _districtID;
+        private int? _cityID;
+        private int? _categoryID;
+
+        public int? CountryID
+        {
+            get => _countryID;
+            set => _countryID = value > 0 ? value : null;  // 0 becomes null
+        }
+        public int? StateID
+        {
+            get => _stateID;
+            set => _stateID = value > 0 ? value : null;
+        }
+        public int? DistrictID
+        {
+            get => _districtID;
+            set => _districtID = value > 0 ? value : null;
+        }
+        public int? CityID
+        {
+            get => _cityID;
+            set => _cityID = value > 0 ? value : null;
+        }
+        public int? CategoryID
+        {
+            get => _categoryID;
+            set => _categoryID = value > 0 ? value : null;
+        }
+
+        public bool? IsActive { get; set; }
+        public int PageNo { get; set; } = 1;
+        public int PageSize { get; set; } = 50;
+    }
+    public class PagedResponse<T>
+    {
+        public int TotalCount { get; set; }
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
+        public int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
+        public bool HasNext => PageNo < TotalPages;
+        public bool HasPrevious => PageNo > 1;
+        public T Data { get; set; }
+    }
 }

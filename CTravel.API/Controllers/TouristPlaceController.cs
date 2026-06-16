@@ -22,6 +22,19 @@ namespace CTravel.API.Controllers
             _repo = new PlaceRepository(); // direct instantiation
         }
 
+        [HttpPost]
+        [Route("Filter")]
+        public HttpResponseMessage GetFilter([FromBody] TouristPlaceFilterRequest filter)
+        {
+            if (filter == null) filter = new TouristPlaceFilterRequest();
+
+            var obj = _repo.GetTouristPlacesFilter(filter);
+            if (obj.Data == null)
+                return Request.CreateResponse(HttpStatusCode.OK,
+                    Response<object>.Fail(obj.MessageID, obj.MessageDesc));
+
+            return Request.CreateResponse(HttpStatusCode.OK, obj);
+        }
         // GET: api/Places/{StateId}/{CityId}
         [HttpGet]
         [Route("{StateId}/{CityId}")]
