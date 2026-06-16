@@ -121,10 +121,6 @@ D:\CTravel\CTravel.API\obj\Debug\CTravel.API.csproj.CopyComplete
 D:\CTravel\CTravel.API\obj\Debug\CTravel.API.dll
 D:\CTravel\CTravel.API\obj\Debug\CTravel.API.pdb
 D:\CTravel\CTravel.API\obj\Debug\CTravel.API.csproj.AssemblyReference.cache
-D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.csproj.AssemblyReference.cache
-D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.csproj.CoreCompileInputs.cache
-D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.dll
-D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.pdb
 D:\Comneertravel\comneertravel\CTravel.API\bin\CTravel.API.dll.config
 D:\Comneertravel\comneertravel\CTravel.API\bin\CTravel.API.dll
 D:\Comneertravel\comneertravel\CTravel.API\bin\CTravel.API.pdb
@@ -243,4 +239,8 @@ D:\Comneertravel\comneertravel\CTravel.API\bin\System.Web.WebPages.Deployment.xm
 D:\Comneertravel\comneertravel\CTravel.API\bin\System.Web.WebPages.Razor.xml
 D:\Comneertravel\comneertravel\CTravel.API\bin\Antlr3.Runtime.pdb
 D:\Comneertravel\comneertravel\CTravel.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.csproj.CoreCompileInputs.cache
 D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.csproj.CopyComplete
+D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.dll
+D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.pdb
+D:\Comneertravel\comneertravel\CTravel.API\obj\Debug\CTravel.API.csproj.AssemblyReference.cache
