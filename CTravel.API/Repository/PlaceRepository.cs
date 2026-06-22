@@ -81,7 +81,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -140,7 +140,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = 100;
+                response.MessageID = 0;
                 response.Data = null;
                 response.MessageDesc = ex.Message;
                 
@@ -211,7 +211,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -249,7 +249,7 @@ namespace CTravel.API.Repository
             var parameters = new[]
             {
             new SqlParameter("@StateID", SqlDbType.Int) { Value = stateId }
-           };
+           }; 
 
             List<SelectDTO> res = FetchAsync(sql, parameters);
 
@@ -320,7 +320,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -371,7 +371,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -408,7 +408,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -531,7 +531,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
@@ -573,7 +573,7 @@ namespace CTravel.API.Repository
             }
             catch (Exception ex)
             {
-                response.MessageID = -1;
+                response.MessageID = 0;
                 response.MessageDesc = ex.Message;
                 response.Data = null;
             }
